@@ -1,12 +1,11 @@
 import * as Actions from '../actions/Actions';
 import uuid from 'uuid';
-import moment from 'moment';
 
 export const addTodo = text => {
   return {
     type: Actions.ADD_TODO,
     id: uuid.v1(),
-    created_at: moment().format('LLL'),
+    created_at: 'newest',
     text
   }
 }

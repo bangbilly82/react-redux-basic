@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreator from '../action-creators/Todos';
-import moment from 'moment';
 import TodosForm from '../components/todos/TodosForm';
 import TodosList from '../components/todos/TodosList';
 
@@ -19,10 +18,6 @@ class Todos extends Component {
     this.props.deleteTodo(id);
   }
 
-  generateDate() {
-    return moment().format('LL'); 
-  }
-
   render() {
     const { todos } = this.props; 
       return (
@@ -30,7 +25,6 @@ class Todos extends Component {
         <div className='row'>
           <div className='col-md-10 col-md-offset-1'>
             <h2 className="todos-heading">Simple Todo App</h2>
-            <h4 className="small">Today, {this.generateDate()}</h4>
             <hr />
             <TodosForm addTodo={this.addTodo.bind(this)}/>
             <div className='row'>
