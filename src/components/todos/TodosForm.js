@@ -37,12 +37,14 @@ class TodosForm extends Component{
         const { text, errorStatus } = this.state;
         return(
             <div className="todos-box">
-                <div className={"input-group " + (errorStatus ? 'has-error' : '')}>
-                    <input type="text" className={'form-control'} onChange={this.handleTodoText} value={text} placeholder="Add New Todo"/>
-                    <span className="input-group-btn">
-                        <button className="btn btn-primary" type="button" onClick={this.dispatchTodo.bind(this)}>Add Todo</button>
-                    </span>
-                </div>
+                <form onSubmit={this.dispatchTodo.bind(this)}>
+                    <div className={"input-group " + (errorStatus ? 'has-error' : '')}>
+                        <input type="text" className={'form-control'} onChange={this.handleTodoText} value={text} placeholder="Add New Todo"/>
+                        <span className="input-group-btn">
+                            <button className="btn btn-primary" type="button" onClick={this.dispatchTodo.bind(this)}>Add Todo</button>
+                        </span>
+                    </div>
+                </form>
                 <span className={"help-block " + (errorStatus ? '' : 'hidden')}>Input must not be empty</span>
                 <br/>
             </div>
